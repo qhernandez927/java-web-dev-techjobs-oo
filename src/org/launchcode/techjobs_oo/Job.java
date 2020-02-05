@@ -40,6 +40,32 @@ public class Job {
 
     }
 
+    private String getFieldValue(String input){
+        return (input == null || input.isEmpty()) ? "Data not available"
+                : input;
+    }
+
+    @Override
+    public String toString(){
+        String newLine = "\n";
+        String id = "ID: " + getFieldValue(Integer.toString(getId()));
+        String newName = "Name: " + getFieldValue(getName());
+        String newEmployer = "Employer: " + getFieldValue(getEmployer().toString());
+        String newLocation = "Location: " + getFieldValue(getLocation().toString());
+        String newPositionType = "Position Type: " + getFieldValue(getPositionType().toString());
+        String newCoreCompetency = "Core Competency: " + getFieldValue(getCoreCompetency().toString());
+        String output = newLine +
+                        id + newLine +
+                        newName + newLine +
+                        newEmployer + newLine +
+                        newLocation + newLine +
+                        newPositionType + newLine +
+                        newCoreCompetency + newLine;
+        return output;
+    }
+
+
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
